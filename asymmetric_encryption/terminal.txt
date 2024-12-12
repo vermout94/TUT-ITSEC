@@ -1,0 +1,13 @@
+# Schlüsselpaar generieren
+openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+openssl rsa -pubout -in private_key.pem -out public_key.pem
+
+# Nachricht verschlüsseln
+echo "Geheime Nachricht" > message.txt
+openssl rsautl -encrypt -inkey public_key.pem -pubin -in message.txt -out message.enc
+
+# Nachricht entschlüsseln
+openssl rsautl -decrypt -inkey private_key.pem -in message.enc -out decrypted_message.txt
+
+# Ergebnis anzeigen
+cat decrypted_message.txt
