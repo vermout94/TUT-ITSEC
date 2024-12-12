@@ -1,0 +1,8 @@
+# Textdatei erstellen
+echo "mein_sicheres_passwort" > password.txt
+
+# Hash generieren
+sha256sum password.txt > password_hash.txt
+
+# Überprüfung
+echo "mein_sicheres_passwort" | sha256sum -c password_hash.txt

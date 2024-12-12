@@ -1,0 +1,9 @@
+# Benutzer erstellen
+sudo adduser demo_user
+
+# Benutzer wechseln (Authentifizierung)
+su demo_user
+
+# Datei erstellen und Zugriff einschränken (Autorisierung)
+sudo touch /root/secure_file
+cat /root/secure_file  # Zugriff wird verweigert

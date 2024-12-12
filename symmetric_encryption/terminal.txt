@@ -1,0 +1,11 @@
+# Textdatei erstellen
+echo "Geheime Nachricht" > geheim.txt
+
+# Verschlüsseln
+openssl enc -aes-256-cbc -salt -in geheim.txt -out geheim.enc -k "passwort"
+
+# Entschlüsseln
+openssl enc -aes-256-cbc -d -in geheim.enc -out entschluesselt.txt -k "passwort"
+
+# Ergebnis anzeigen
+cat entschluesselt.txt
